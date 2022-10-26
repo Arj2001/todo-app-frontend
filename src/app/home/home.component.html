@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container text-white my-3">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xxl-12 col-xl-12">
+            <div class="row">
+                <div class="col col-1 "></div>
+                <div
+                    class="row g-3 py-2 px-0 rounded-3 bg-dark tcol col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <label for="" class="form-label fs-5">Todo Name</label>
+                        <input type="text" class="form-control bg-dark text-white" name="todo_name" [(ngModel)]="todo_name">
+                    </div>
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <label for="" class="form-label fs-5">Enter description</label>
+                        <textarea type="text" name="tweet" id="" rows="1"
+                        placeholder="Write somthing awesome about you........"
+                        class="form-control fs-5 bg-dark text-white" [(ngModel)]="todo_desc"></textarea>
+                    </div>
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <label for="" class="form-label fs-5">Due Date</label>
+                        <input type="date" class="form-control bg-dark text-white" name="due_date" [(ngModel)]="due_date">
+                    </div>
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <button class="btn btn-warning" (click)="readValues()">Add Todo</button>
+                        
+                    </div>
+                </div>
+                <div class="p-0 col col-1"></div>
+            </div>
+            <div class="row my-3" *ngFor="let i of todoData">
+                <div class="col col-1"></div>
+                
+                    <div class="mn-1 col col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 p-0">
+                        <div class="card text-white bg-dark mx-0 ">
+                            <div class="card-header d-flex fs-4">{{i.todo_name}} <span class="ms-auto fs-6">Added on: <span class="badge bg-primary fs-6">{{i.start_date}}</span></span> </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-white">{{i.todo_description}}</h5>
+                            </div>
+                            <div class="card-footer d-flex">
+                                <p class="badge bg-primary fs-5">Complete Before:{{i.due_date}}</p>
+
+                                    <span *ngIf="i.status" class="ms-auto">
+                                        
+                                        <span class="badge bg-success fs-5" disabled>Completed</span>
+
+                                    </span>
+                                    <span *ngIf="!i.status" class="ms-auto">
+
+                                        <button class="btn btn-outline-success fs-5 mx-1 py-0">Mark as Completed</button>
+                                        <span class="badge bg-danger fs-5">Not Completed</span>
+
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="col col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
