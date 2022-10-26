@@ -20,4 +20,7 @@ export class ApiService {
   viewTodo=(data:any)=>{
     return this.http.post("http://localhost:8080/viewTodo",data)
   }
+  changeTodoStatus=(data:any)=>{
+    return this.http.post("http://localhost:8080/status",data)
+  }
 }

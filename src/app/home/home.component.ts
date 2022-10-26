@@ -36,6 +36,17 @@ export class HomeComponent implements OnInit {
     this.getTodoList()
   }
 
+  changeStatus=(id:any)=>{
+    let data = {
+      "id" : id, 
+      "status":true
+    }
+    console.log(data)
+    this.myApi.changeTodoStatus(data).subscribe()
+    alert("Status changed ")
+    this.getTodoList()
+  }
+
   getTodoList=()=>{
     let data = {
       "user_id":localStorage.getItem("id")

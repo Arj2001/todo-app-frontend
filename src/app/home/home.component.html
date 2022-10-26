@@ -46,7 +46,7 @@
                                     </span>
                                     <span *ngIf="!i.status" class="ms-auto">
 
-                                        <button class="btn btn-outline-success fs-5 mx-1 py-0">Mark as Completed</button>
+                                        <button class="btn btn-outline-success fs-5 mx-1 py-0" (click)="changeStatus(i.id)">Mark as Completed</button>
                                         <span class="badge bg-danger fs-5">Not Completed</span>
 
                                     </span>
